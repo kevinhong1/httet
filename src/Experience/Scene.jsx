@@ -24,8 +24,8 @@ const Scene = ({ pointerRef }) => {
   const darkGroupRef = useRef();
   const lightGroupRef = useRef();
   const gridPlanesRef = useRef();
-  const darkRoomGroupPosition = new THREE.Vector3(0, 0, 0);
-  const lightRoomGroupPosition = new THREE.Vector3(24.79, 0, 0.173);
+  const darkRoomGroupPosition = new THREE.Vector3(24.79, 0, 0.173);
+  const lightRoomGroupPosition = new THREE.Vector3(0,0,0);
   const groupRotationRef = useRef(0);
   const { isDarkRoom } = useToggleRoomStore();
   const { isExperienceReady } = useExperienceStore();
