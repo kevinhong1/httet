@@ -5,12 +5,7 @@ import DarkRoomFirst from "./models/dark/Dark_First";
 import DarkRoomSecond from "./models/dark/Dark_Second";
 import DarkRoomThird from "./models/dark/Dark_Third";
 import DarkRoomFourth from "./models/dark/Dark_Fourth";
-import LightRoomFirst from "./models/light/Light_First";
-import LightRoomSecond from "./models/light/Light_Second";
-import LightRoomThird from "./models/light/Light_Third";
-import LightRoomFourth from "./models/light/Light_Fourth";
 import DarkTargets from "./models/dark/Dark_Targets";
-import LightTargets from "./models/light/Light_Targets";
 import GridPlanes from "./components/GridPlanes";
 
 import { useToggleRoomStore } from "../stores/toggleRoomStore";
@@ -95,43 +90,7 @@ const Scene = ({ pointerRef }) => {
           <DarkTargets />
         </group>
 
-        <group ref={lightGroupRef} position={lightRoomGroupPosition}>
-          <LightRoomFirst
-            position={[
-              -lightRoomGroupPosition.x,
-              -lightRoomGroupPosition.y,
-              -lightRoomGroupPosition.z,
-            ]}
-          />
-          <LightRoomSecond
-            position={[
-              -lightRoomGroupPosition.x,
-              -lightRoomGroupPosition.y,
-              -lightRoomGroupPosition.z,
-            ]}
-          />
-          <LightRoomThird
-            position={[
-              -lightRoomGroupPosition.x,
-              -lightRoomGroupPosition.y,
-              -lightRoomGroupPosition.z,
-            ]}
-          />
-          <LightRoomFourth
-            position={[
-              -lightRoomGroupPosition.x,
-              -lightRoomGroupPosition.y,
-              -lightRoomGroupPosition.z,
-            ]}
-          />
-          <LightTargets
-            position={[
-              -lightRoomGroupPosition.x,
-              -lightRoomGroupPosition.y,
-              -lightRoomGroupPosition.z,
-            ]}
-          />
-        </group>
+        
         <GridPlanes
           ref={gridPlanesRef}
           rows={10}
