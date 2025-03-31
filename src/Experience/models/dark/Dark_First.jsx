@@ -1,13 +1,12 @@
 import React, { useRef, useMemo } from "react";
-import { useGLTFWithKTX2 } from "../../utils/useGLTFWithKTX2";
+import { useGLTF } from "@react-three/drei";
 import { convertMaterialsToBasic } from "../../utils/convertToBasic";
 import * as THREE from "three";
 import videos from "../../utils/videoTextures";
 
+
 export default function Model(props) {
-  const { nodes, materials } = useGLTFWithKTX2(
-    "/models/Dark Room/Dark_First.glb"
-  );
+  const { nodes, materials } = useGLTF("/models/Light Room/Light_First.glb");
   const newMaterials = convertMaterialsToBasic(materials);
 
   const macScreenRef = useRef();
@@ -15,8 +14,8 @@ export default function Model(props) {
 
   const computerScreenMaterial = useMemo(() => {
     return new THREE.MeshBasicMaterial({
-      color: "#8a8a8a",
-      map: videos.devWork.texture,
+      color: "#f6f6f6",
+      map: videos.designWork.texture,
     });
   }, []);
 
@@ -37,11 +36,12 @@ export default function Model(props) {
         rotation={[0, -0.053, 0]}
       />
       <mesh
-        geometry={nodes.First_Baked.geometry}
-        material={newMaterials.first_real_realfdsa_Baked}
+        geometry={nodes.Light_First_Baked.geometry}
+        material={newMaterials.REAL_first_Baked}
         position={[-0.231, -0.14 - 0.02, 0.652]}
         rotation={[Math.PI, 0, Math.PI]}
       />
     </group>
   );
 }
+useGLTF.preload("/models/Light Room/Light_First.glb");

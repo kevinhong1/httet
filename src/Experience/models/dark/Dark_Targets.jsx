@@ -12,16 +12,18 @@ import { useNavigate } from "react-router";
 export default function Model(props) {
   let navigate = useNavigate();
 
-  const { nodes, materials } = useGLTF("/models/Dark Room/Dark_Targets.glb");
+  const { nodes, materials } = useGLTF("/models/Light Room/Light_Targets.glb");
 
-  const whiteMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const blackMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
 
   const aboutAnimRef = useRef();
   const devWorkAnimRef = useRef();
+  const designWorkAnimRef = useRef();
 
   const animationPairs = {
     About_Hitbox: { ref: aboutAnimRef },
     Dev_Work_Hitbox: { ref: devWorkAnimRef },
+    Design_Work_Hitbox: { ref: designWorkAnimRef },
   };
 
   //Handle Hover
@@ -37,6 +39,23 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null}>
+      <mesh
+        geometry={nodes.Design_Work_Hitbox.geometry}
+        material={nodes.Design_Work_Hitbox.material}
+        position={[0.679, 1.571 - 0.02, -1.368]}
+        visible={false}
+        onPointerOver={() => {
+          onHover("Design_Work_Hitbox", true);
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerOut={() => {
+          onHover("Design_Work_Hitbox", false);
+          document.body.style.cursor = "auto";
+        }}
+        onClick={() => {
+          navigate("/design-work");
+        }}
+      />
       <mesh
         geometry={nodes.About_Hitbox.geometry}
         material={nodes.About_Hitbox.material}

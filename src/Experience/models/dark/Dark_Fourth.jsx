@@ -9,7 +9,7 @@ import { convertMaterialsToBasic } from "../../utils/convertToBasic";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTFWithKTX2(
-    "/models/Dark Room/Dark_Fourth.glb"
+    "/models/Light Room/Light_Fourth.glb"
   );
 
   const newMaterials = convertMaterialsToBasic(materials);
@@ -17,17 +17,12 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <mesh
-        geometry={nodes.Fourth_Baked.geometry}
-        material={newMaterials.Fourth_Real_Real_Texture_Set_Baked}
+        geometry={nodes.Light_Fourth_Baked.geometry}
+        material={newMaterials.REAL_fourth_Baked}
         position={[-0.356, 0 - 0.02, 1.362]}
         rotation={[Math.PI, 0, Math.PI]}
       />
-      <mesh
-        geometry={nodes.Chair_Top_Fourth_Baked.geometry}
-        material={newMaterials.Fourth_Real_Real_Texture_Set_Baked}
-        position={[-0.373, 0.735 - 0.02, 1.304]}
-        rotation={[Math.PI, -0.121, Math.PI]}
-      />
+
     </group>
   );
 }
